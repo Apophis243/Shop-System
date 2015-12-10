@@ -1,16 +1,5 @@
-import {
-Component,
-View,
-EventEmitter,
-NgClass,
-NgStyle,
-FORM_DIRECTIVES,
-CORE_DIRECTIVES,
-FormBuilder,
-ControlGroup,
-Control,
-Validators,
-OnInit
+import {Component, View, EventEmitter, NgClass, NgStyle, FORM_DIRECTIVES,
+CORE_DIRECTIVES, FormBuilder, ControlGroup, Control, Validators, OnInit 
 } from 'angular2/angular2';
 import {Response} from 'angular2/http';
 import {Router, CanActivate} from 'angular2/router';
@@ -21,7 +10,6 @@ import ArtikelService from '../../../service/artikel_service';
 import Artikel from '../../../model/artikel';
 import ArtikelValidator from '../../validator/artikel_validator';
 import template from './create_artikel.html';
-
 
 
 @Component({
