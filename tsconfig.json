@@ -1,0 +1,46 @@
+{
+    "version": "1.6.2",
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "suppressExcessPropertyErrors": false,
+        "declaration": true,
+        "rootDir": "src",
+        "outDir": "js",
+        "locale": "de"
+    },
+    "filesGlob": [
+        "src/**/*.ts"
+    ],
+    "files": [
+        "src/app/app.ts",
+        "src/app/bootstrap.ts",
+        "src/app/header.ts",
+        "src/app/home.ts",
+        "src/app/injectables.ts",
+        "src/app/login.ts",
+        "src/app/logo.ts",
+        "src/app/logout.ts",
+        "src/app/main.ts",
+        "src/app/menubar.ts",
+        "src/app/providers.ts",
+        "src/app/routes.ts",
+        "src/app/footer.ts",
+        "src/shopverwaltung/components/artikel/artikel_create/create_artikel.ts",
+        "src/shopverwaltung/components/validator/artikel_validator.ts",
+        "src/shopverwaltung/model/artikel.ts",
+        "src/shopverwaltung/model/bestellung.ts",
+        "src/shopverwaltung/model/kunde.ts",
+        "src/shopverwaltung/service/artikel_service.ts",
+        "src/iam/iam_service.ts",
+        "src/util/chart_service.ts",
+        "src/util/constants.ts",
+        "src/util/functions.ts",
+        "src/util/log.ts",
+        "src/util/mock.ts",
+        "src/util/util.ts"
+    ]
+}
