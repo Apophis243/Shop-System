@@ -1,2 +1,2 @@
 # Shop-Group2
-Shop System of Group 2
+Angular2 Shop System implemented with Typescript
