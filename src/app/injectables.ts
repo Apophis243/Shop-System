@@ -14,10 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 import IamService from '../iam/iam_service';
 import {ChartService} from '../util/util';
 import ArtikelService from '../shopverwaltung/service/artikel_service';
+import BestellungService from '../shopverwaltung/service/bestellung_service';
 /* tslint:disable:max-line-length */
 
 /* tslint:enable:max-line-length */
@@ -27,6 +27,7 @@ const APP_INJECTABLES: Array<any> = [
     IamService,
     ChartService,
     ArtikelService,
+    BestellungService,
 ];
 
 export default APP_INJECTABLES;

@@ -26,6 +26,7 @@ import CreateArtikel from '../shopverwaltung/components/artikel/artikel_create/c
 //import SearchBuchung from '../buchungsverwaltung/components/search_buchung/search_buchung';
 import EditArtikel from '../shopverwaltung/components/artikel/artikel_edit/artikel_edit';
 //import SucheBuecher from '../buchverwaltung/components/suche_buecher/suche_buecher';
+import SearchBestellungen from '../shopverwaltung/components/bestellung/bestellung_search/search_buchung';
 //import DetailsBuch from '../buchverwaltung/components/details_buch/details_buch';
 //import CreateBuch from '../buchverwaltung/components/create_buch/create_buch';
 //import UpdateBuch from '../buchverwaltung/components/update_buch/update_buch';
@@ -45,7 +46,7 @@ const APP_ROUTES: Array<RouteDefinition> = [
     //{path: '/alleauszahlungen', as: 'AlleAuszahlungen', component: AlleAuszahlungen},
     //{path: '/buchungdetail/:id', as: 'BuchungDetail', component: BuchungDetail},
     {path: '/createartikel', as: 'CreateArtikel', component: CreateArtikel},
-    //{path: '/searchbuchung', as: 'SearchBuchung', component: SearchBuchung},
+    {path: '/searchbestellungen', as: 'SearchBestellungen', component: SearchBestellungen},
     {path: '/editartikel/:id', as: 'EditArtikel', component: EditArtikel},
     // z.B. Pfad .../detailsBuch/0000...0815
    // {path: '/detailsBuch/:id', as: 'DetailsBuch', component: DetailsBuch},

@@ -53,7 +53,6 @@ export default class ArtikelService {
     get alleartikel(): Array<Artikel> { return this._alleartikel; }
     get artikel(): Artikel { return this._artikel; }
     
-    @log
     getall() {
         this._loadingFind = true;
         this._initFind = false;
@@ -104,15 +103,13 @@ export default class ArtikelService {
         successHTTP();
     }
     
-    @log
-    update(
-        changedartikel: Artikel, successHTTP: () => void, errorHTTP: (response: Response) => void):
+    //@log
+    update(changedartikel: Artikel, successHTTP: () => void, errorHTTP: (response: Response) => void):
         void {
-        
+
         if (changedartikel != null) {
             this._http.put(this.artikeluri, changedartikel, {
-                headers: this.artikelheader,
-                body: changedartikel
+                headers: this.artikelheader
             })
                 .map(res => console.log(res))
                 .subscribe(

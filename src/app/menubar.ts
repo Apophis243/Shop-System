@@ -35,8 +35,7 @@ import IamService from '../iam/iam_service';
         <li>
             <a >Bestellungen</a>
             <ul>
-                <li><a href="#">Suche nach ID</a></li>
-                <li><a href="#">Suche nach Kunde</a></li>
+                <li><a [router-link]="['SearchBestellungen']">Suche</a></li>
                 <li><a href="#">Neu anlegen</a></li>
             </ul>
         </li>
