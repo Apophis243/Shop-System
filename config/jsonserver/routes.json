@@ -1,5 +1,0 @@
-{
-    "/shop/rest/buecher": "/buecher",
-    "/shop/rest/buecher?a": "/buecherA",
-    "/shop/rest/buecher?b": "/buecherB"
-}
