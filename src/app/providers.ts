@@ -25,7 +25,9 @@ import {
 import {
     MOCK_OBJECTS_PROVIDER_BESTELLUNGEN
 } from '../shopverwaltung/service/bestellung_service';
-
+import {
+    MOCK_OBJECTS_PROVIDER_KUNDE
+} from '../shopverwaltung/service/kunde_service';
 
 
 import {HTTP_PROVIDER, PORT_MOCK_PROVIDER} from '../util/util';
@@ -37,6 +39,7 @@ const APP_PROVIDERS: Array<any> = [
     // MOCK_SERVER_PROVIDER,
     MOCK_OBJECTS_PROVIDER,
     MOCK_OBJECTS_PROVIDER_BESTELLUNGEN,
+    MOCK_OBJECTS_PROVIDER_KUNDE,
     
     // HTTPS_PROVIDER,
     HTTP_PROVIDER,

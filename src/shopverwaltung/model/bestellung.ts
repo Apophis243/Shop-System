@@ -35,5 +35,9 @@ export default class Bestellung {
       this.bestellpositionen.push(bestellposition);
     }
   }
+  
+  get datumFormatted(): string { return this.datum.format('Do MMM YYYY'); }
+  
+  get datumFromNow(): string { return this.datum.fromNow(); }
 
 }

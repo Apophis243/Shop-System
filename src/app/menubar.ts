@@ -39,7 +39,12 @@ import IamService from '../iam/iam_service';
                 <li><a href="#">Neu anlegen</a></li>
             </ul>
         </li>
-        
+        <li>
+            <a >Kunden</a>
+            <ul>
+                <li><a [router-link]="['KundeRegisterLandingPage']">Register</a></li>
+            </ul>
+        </li>
     </ul>
     `,
     directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES]

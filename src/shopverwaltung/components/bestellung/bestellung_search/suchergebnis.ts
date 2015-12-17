@@ -37,7 +37,7 @@ import {log} from '../../../../util/util';
                             <td>{{i + 1}}</td>
                             <td>{{b.id}}</td>
                             <td>{{b.gesamtbetrag}}</td>
-                            <td>{{b.datum}}</td>
+                            <td>{{b.datumFormatted}}</td>
                         </tr>
                     </tbody>
                 </table>
