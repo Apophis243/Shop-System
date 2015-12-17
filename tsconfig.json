@@ -39,6 +39,7 @@
         "src/shopverwaltung/components/kunde/kunde_register/kunde_register_firma.ts",    
         "src/shopverwaltung/components/kunde/kunde_register/kunde_register_privat.ts",     
         "src/shopverwaltung/components/validator/artikel_validator.ts",
+        "src/shopverwaltung/components/login/login.ts",
         "src/shopverwaltung/model/artikel.ts",
         "src/shopverwaltung/model/bestellung.ts",
         "src/shopverwaltung/model/bestellposition.ts",
