@@ -1,0 +1,256 @@
+<h2>Als Privatkunde registrieren</h2>
+
+<form [ng-form-model]="form" (submit)="save()" class="form-horizontal" role="form">
+      
+    <div class="form-group" [class.has-error]="!loginname.valid && loginname.touched">
+        <label for="loginnameInput" class="col-sm-2 control-label">Loginname *</label>
+        <div class="col-sm-10">
+            <input id="loginnameInput"
+                placeholder="Loginname"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="loginname"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!loginname.valid && loginname.touched">
+            <span class="help-block">
+                Der Loginname muss mit einem Buchstaben oder Zahl beginnen !
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!nachname.valid && nachname.touched">
+        <label for="nachnameInput" class="col-sm-2 control-label">Nachname *</label>
+        <div class="col-sm-10">
+            <input id="nachnameInput"
+                placeholder="Nachname"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="nachname"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!nachname.valid && nachname.touched">
+            <span class="help-block">
+                Der Nachname muss mit einem Buchstaben oder Zahl beginnen !
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!vorname.valid && vorname.touched">
+        <label for="vornameInput" class="col-sm-2 control-label">Vorname *</label>
+        <div class="col-sm-10">
+            <input id="vornameInput"
+                placeholder="Vorname"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="vorname"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!vorname.valid && vorname.touched">
+            <span class="help-block">
+                Der Vorname muss mit einem Buchstaben oder Zahl beginnen !
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!email.valid && email.touched">
+        <label for="emailInput" class="col-sm-2 control-label">Email *</label>
+        <div class="col-sm-10">
+            <input id="emailInput"
+                placeholder="your@email"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="email"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!email.valid && email.touched">
+            <span class="help-block">
+                Die Email muss ein @-Zeichen beinhalten !
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!password.valid && password.touched">
+        <label for="emailInput" class="col-sm-2 control-label">Passwort *</label>
+        <div class="col-sm-10">
+            <input id="passwordInput"
+                class="form-control"
+                autofocus
+                type="password"
+                [ng-form-control]="password"/>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!passwordWdh.valid && passwordWdh.touched">
+        <label for="passwordWdhInput" class="col-sm-2 control-label">Passwort wieder. *</label>
+        <div class="col-sm-10">
+            <input id="passwordWdhInput"
+                class="form-control"
+                autofocus
+                type="password"
+                [ng-form-control]="passwordWdh"/>
+        </div>
+    </div>
+    
+     <div class="form-group">
+        <label class="col-sm-2 control-label">Geschlecht</label>
+        <div class="col-sm-10">
+            <label class="radio-inline">
+                <input type="radio" name="geschlecht" value="MAENNLICH" checked
+                       (click)="art = 'MAENNLICH'"> Mann 
+            </label>&nbsp;
+            <label class="radio-inline">
+                <input type="radio" name="geschlecht" value="WEIBLICH" 
+                       (click)="art = 'WEIBLICH'"> Frau
+            </label>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!familienstand.valid && familienstand.touched">
+        <label class="col-sm-2 control-label">Familienstand</label>
+        <div class="col-sm-10">
+            <select class="form-control" [ng-form-control]="familienstand">
+                <option value="">Bitte Familienstand ausw&auml;hlen</option>
+                <option value="LEDIG">ledig</option>
+                <option value="VERHEIRATET">verheiratet</option>
+                <option value="GESCHIEDEN">geschieden</option>
+           </select>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!familienstand.valid && familienstand.touched">
+            <span class="help-block">
+                Familienstand bitte angeben
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!strasse.valid && strasse.touched">
+        <label for="strasseInput" class="col-sm-2 control-label">Strasse *</label>
+        <div class="col-sm-10">
+            <input id="strasseInput"
+                placeholder="Strasse"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="strasse"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!strasse.valid && strasse.touched">
+            <span class="help-block">
+                Die Strasse darf nicht leer sein
+            </span>
+        </div>
+    </div>
+    
+     <div class="form-group" [class.has-error]="!hausnr.valid && hausnr.touched">
+        <label for="hausnrInput" class="col-sm-2 control-label">Hausnr *</label>
+        <div class="col-sm-10">
+            <input id="hausnrInput"
+                placeholder="Hausnr"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="hausnr"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!hausnr.valid && hausnr.touched">
+            <span class="help-block">
+                Die Hausnummer darf nicht leer sein
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!ort.valid && ort.touched">
+        <label for="ortInput" class="col-sm-2 control-label">Stadt *</label>
+        <div class="col-sm-10">
+            <input id="ortInput"
+                placeholder="Ort"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="ort"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!ort.valid && ort.touched">
+            <span class="help-block">
+                Der Ort darf nicht leer sein
+            </span>
+        </div>
+    </div>
+    
+     <div class="form-group" [class.has-error]="!plz.valid && plz.touched">
+        <label for="plzInput" class="col-sm-2 control-label">PLZ *</label>
+        <div class="col-sm-10">
+            <input id="plzInput"
+                placeholder="76133"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="plz"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!plz.valid && plz.touched">
+            <span class="help-block">
+                Die PLZ darf nicht leer sein
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="hobbysInput" class="col-sm-2 control-label">Hobbys</label>
+        <div class="col-sm-10">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" [ng-form-control]="sport">Sport</label>
+                <label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"[ng-form-control]="lesen">Lesen</label>
+                <label>
+            </div>
+             <div class="checkbox">
+                <label>
+                    <input type="checkbox"[ng-form-control]="reisen">Reisen</label>
+                <label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="signatureInput" class="col-sm-2 control-label">Signatur</label>
+        <div class="col-sm-10">
+            <input id="signatureInput"
+                placeholder="Signatur"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="signature"/>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="newsletterInput" class="col-sm-2 control-label">Newsletter abonieren</label>
+        <div class="col-sm-10">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" [ng-form-control]="newsletter">Ja bitte</label>
+                <label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="agbAkzeptiertInput" class="col-sm-2 control-label">AGB akzeptieren *</label>
+        <div class="col-sm-10">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" [ng-form-control]="agbAkzeptiert">Ich stimme zu</label>
+                <label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-default" [disabled]="!form.valid"><i class="fa fa-check"></i> &nbsp; Jetzt registrieren</button>
+        </div>
+    </div>
+    
+</form>
