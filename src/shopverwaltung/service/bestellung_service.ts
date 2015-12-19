@@ -85,6 +85,20 @@ export default class BestellungService {
             .subscribe(res => { this._allebestellungen = res;});
 
     }
+    
+        findbyDetailId(id: string) {
+         return this._http.get(this.bestellunguri + id, {
+            headers: this.bestellungheader,
+            body: id
+         })
+            .map((response) => {
+                return response.json();
+            })
+            .map((bestellung: any) => {
+                return new Bestellung(bestellung.id, bestellung.version, bestellung.gesamtbetrag, bestellung.kundeUri, bestellung.datum, bestellung.bestellpositionen)
+            })
+            .subscribe(res => this._bestellung = res);
+    }
 
 }
 
