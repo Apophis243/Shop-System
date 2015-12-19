@@ -19,14 +19,36 @@ import Bestellung from '../../../model/bestellung';
                 </tr>
 				<tr>
                     <td><label>Betrag</label></td>
-                    <td>{{bestellung.gesamtbetrag}}</td>
+                    <td>{{bestellung.gesamtbetrag  | currency: 'EUR': true}}</td>
                 </tr>
                 <tr>
                     <td><label>Version</label></td>
                     <td>{{bestellung.version}}</td>
-                </tr>
+                </tr>   
              </tbody>
 	    </table>
+        <br><b>Diese Bestellung enthaelt folgende Bestellpositionen:</b><br><br>
+        <table class="table table-stripped table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>Nr.</th>
+                <th>Anzahl</th>
+                <th>ArtikelUri</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ng-for="var pos of bestellung.bestellpositionen; var i = index">
+                        <!--
+                        <tr *ng-for="#pos of bestellung.bestellpositionen; #i = index">
+                        -->
+                            <td>Position {{i + 1}}</td>                        
+                            <td>{{pos.anzahl}}</td>
+                            <td>{{pos.artikelUri}}</td>
+                  </tr>       
+            </tbody>
+	    </table>
+
+        
          <a onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" align='center' style="display: block" href="#neu">Als JSON Datensatz anzeigen</a> 
                 <a onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" align='center' style="display: none" href="#neu">zuklappen</a> 
                 <a name="neu"></a><DIV id="text1" style="display: none"><pre>{{bestellung | json}}</pre></div>
