@@ -30,6 +30,13 @@
         "src/app/routes.ts",
         "src/app/footer.ts",
         "src/shopverwaltung/components/artikel/artikel_create/create_artikel.ts",
+<<<<<<< HEAD
+        "src/shopverwaltung/components/validator/artikel_validator.ts",
+        "src/shopverwaltung/model/artikel.ts",
+        "src/shopverwaltung/model/bestellung.ts",
+        "src/shopverwaltung/model/kunde.ts",
+        "src/shopverwaltung/service/artikel_service.ts",
+=======
         "src/shopverwaltung/components/artikel/alleartikel/alleartikel.ts",
         "src/shopverwaltung/components/artikel/artikel_detail/artikel_detail.ts",
         "src/shopverwaltung/components/artikel/artikel_edit/artikel_edit.ts",
@@ -49,6 +56,7 @@
         "src/shopverwaltung/service/artikel_service.ts",
         "src/shopverwaltung/service/bestellung_service.ts",
         "src/shopverwaltung/service/kunde_service.ts",
+>>>>>>> refs/remotes/invetalcom/master
         "src/iam/iam_service.ts",
         "src/util/chart_service.ts",
         "src/util/constants.ts",
