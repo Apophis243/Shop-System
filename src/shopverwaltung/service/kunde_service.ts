@@ -1,24 +1,10 @@
 import {Inject, provide, Provider} from 'angular2/angular2';
 import {Http, Headers, Response} from 'angular2/http';
-import {
-ChartDataSet,
-LinearChartData,
-CircularChartData,
-IChart
-} from 'chart/Chart';
+import {ChartDataSet, LinearChartData, CircularChartData, IChart } from 'chart/Chart';
 
 import KundePrivat from '../model/kunde_privat';
-import {
-ChartService,
-SCHEME,
-SERVERNAME,
-PORT,
-BASE_PATH_BUECHER,
-isPresent,
-log,
-isEmpty,
-isBlank
-} from '../../util/util';
+import { ChartService, SCHEME, SERVERNAME, PORT, BASE_PATH_BUECHER, isPresent,
+        log, isEmpty, isBlank } from '../../util/util';
 
 
 export default class KundeService {

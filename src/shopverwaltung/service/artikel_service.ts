@@ -1,31 +1,16 @@
 import {Inject, provide, Provider} from 'angular2/angular2';
 import {Http, Headers, Response} from 'angular2/http';
-import {
-ChartDataSet,
-LinearChartData,
-CircularChartData,
-IChart
-} from 'chart/Chart';
+import {ChartDataSet, LinearChartData, CircularChartData, IChart } from 'chart/Chart';
 
 import Artikel from '../model/artikel';
 import {IArtikelServer, IArtikelForm} from '../model/artikel';
-import {
-ChartService,
-SCHEME,
-SERVERNAME,
-PORT,
-BASE_PATH_BUECHER,
-isPresent,
-log,
-isEmpty,
-isBlank
-} from '../../util/util';
-import {nextId} from '../../util/mock';
+import {ChartService, SCHEME, SERVERNAME, PORT, BASE_PATH_BUECHER, isPresent,
+        log, isEmpty, isBlank } from '../../util/util';
 
 
 export default class ArtikelService {
 
-    private _baseUriBuecher: string;
+    private _baseUriArtikel: string;
     private _alleartikel: Array<Artikel> = [];
     private _artikel: Artikel = null;
     private _initFind: boolean = true;
@@ -40,8 +25,8 @@ export default class ArtikelService {
     constructor( @Inject(ChartService) private _chartService: ChartService,
         @Inject(Http) private _http: Http, @Inject(SCHEME) scheme: string,
         @Inject(PORT) port: number) {
-        this._baseUriBuecher = `${scheme}:${SERVERNAME}:${port}${BASE_PATH_BUECHER}`;
-        console.log("ShopService.Konstruktoraufruf" + this._baseUriBuecher);
+        this._baseUriArtikel = `${scheme}:${SERVERNAME}:${port}${BASE_PATH_BUECHER}`;
+        console.log("ShopService.Konstruktoraufruf" + this._baseUriArtikel);
         this.artikelheader.append('Accept', 'application/json');
         this.artikelheader.append('Content-Type', 'application/json');
         this.artikelheader.append('Authorization', this.basicAuth);

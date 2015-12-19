@@ -1,21 +1,19 @@
-/*
- * Copyright (C) 2015 Juergen Zimmermann, Hochschule Karlsruhe
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {
+Component,
+View,
+EventEmitter,
+NgClass,
+NgStyle,
+FORM_DIRECTIVES,
+CORE_DIRECTIVES,
+FormBuilder,
+ControlGroup,
+Control,
+Validators,
+OnInit
+} from 'angular2/angular2';
+import {ROUTER_DIRECTIVES, Router, CanActivate} from 'angular2/router';
+import toastr from 'toastr/toastr';
 
 import IamService from '../iam/iam_service';
 
@@ -24,19 +22,38 @@ import IamService from '../iam/iam_service';
     template: `
         <div *ng-if="isLoggedIn()">
             <i class="fa fa-2x fa-sign-out"></i> &nbsp;
-            <button class="btn btn-default" type="button">Logout</button>
+            <button (click)="logout()" class="btn btn-default" type="button">Logout</button>
         </div>
     `,
-    directives: [CORE_DIRECTIVES]
+    directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, NgClass, NgStyle],
+    providers: [FormBuilder]
 })
 export default class Logout {
-    constructor(private _iamService: IamService) {
+    constructor(private _iamService: IamService, private _router: Router) {
         console.log('Logout.constructor()');
     }
 
     isLoggedIn(): boolean { return this._iamService.isLoggedIn(); }
 
-    logout(): void { console.log('Logout.logout()'); }
+    logout(): void { 
+        var status : boolean = this._iamService.logout(this._iamService.getkundenid());
+        
+        if (status) {
+            toastr.options.closeButton = true;
+            toastr.options.closeHtml =
+            '<button><i class="fa fa-times"></i></button>';
+            toastr.options.progressBar = true;
+            toastr.success("Erfolgreich ausgeloggt");
+            this._router.navigate(['Home']);
+        }
+        else if(!status) {
+            toastr.options.closeButton = true;
+            toastr.options.closeHtml =
+            '<button><i class="fa fa-times"></i></button>';
+            toastr.options.progressBar = true;
+            toastr.error("Fehler beim Logout");
+        }
+    }
 
     toString(): String { return 'Logout'; }
 }

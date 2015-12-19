@@ -46,6 +46,8 @@
         "src/shopverwaltung/components/kunde/kunde_register/kunde_register_firma.ts",    
         "src/shopverwaltung/components/kunde/kunde_register/kunde_register_privat.ts",     
         "src/shopverwaltung/components/validator/artikel_validator.ts",
+        "src/shopverwaltung/components/login/login.ts",
+        "src/shopverwaltung/components/warenkorb/warenkorb.ts",
         "src/shopverwaltung/model/artikel.ts",
         "src/shopverwaltung/model/bestellung.ts",
         "src/shopverwaltung/model/bestellposition.ts",
@@ -56,7 +58,11 @@
         "src/shopverwaltung/service/artikel_service.ts",
         "src/shopverwaltung/service/bestellung_service.ts",
         "src/shopverwaltung/service/kunde_service.ts",
+<<<<<<< HEAD
+        "src/shopverwaltung/service/warenkorb_service.ts",     
+=======
 >>>>>>> refs/remotes/invetalcom/master
+>>>>>>> refs/remotes/origin/master
         "src/iam/iam_service.ts",
         "src/util/chart_service.ts",
         "src/util/constants.ts",

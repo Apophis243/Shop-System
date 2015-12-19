@@ -29,6 +29,7 @@ import EditArtikel from '../shopverwaltung/components/artikel/artikel_edit/artik
 import SearchBestellungen from '../shopverwaltung/components/bestellung/bestellung_search/search_buchung';
 import KundeRegisterLandingPage from '../shopverwaltung/components/kunde/kunde_register/kunde_register_landingpage';
 import KundeRegisterPrivat from '../shopverwaltung/components/kunde/kunde_register/kunde_register_privat';
+import Login from '../shopverwaltung/components/login/login';
 //import DetailsBuch from '../buchverwaltung/components/details_buch/details_buch';
 //import CreateBuch from '../buchverwaltung/components/create_buch/create_buch';
 //import UpdateBuch from '../buchverwaltung/components/update_buch/update_buch';
@@ -52,6 +53,7 @@ const APP_ROUTES: Array<RouteDefinition> = [
     {path: '/editartikel/:id', as: 'EditArtikel', component: EditArtikel},
     {path: '/register', as: 'KundeRegisterLandingPage', component: KundeRegisterLandingPage},
     {path: '/registerprivat', as: 'KundeRegisterPrivat', component: KundeRegisterPrivat},
+    {path: '/login', as: 'Login', component: Login},
     // z.B. Pfad .../detailsBuch/0000...0815
    // {path: '/detailsBuch/:id', as: 'DetailsBuch', component: DetailsBuch},
    // {path: '/updateBuch/:id', as: 'UpdateBuch', component: UpdateBuch},

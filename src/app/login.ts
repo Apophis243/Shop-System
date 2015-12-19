@@ -16,6 +16,7 @@
  */
 
 import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {ROUTER_DIRECTIVES, Router, RouteParams} from 'angular2/router';
 
 import IamService from '../iam/iam_service';
 
@@ -23,10 +24,10 @@ import IamService from '../iam/iam_service';
     selector: 'login',
     template: `
         <div *ng-if="isNotLoggedIn()">
-            <button class="btn btn-default" type="button">Login</button>
+            <a [router-link]="['Login']"><button class="btn btn-default" type="button">Login</button></a>
         </div>
     `,
-    directives: [CORE_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES]
 })
 export default class Login {
     constructor(private _iamService: IamService) {
