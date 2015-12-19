@@ -20,13 +20,14 @@ export default class Bestellung {
   constructor(
     public id: string, public version: number, public gesamtbetrag: number, public kundeUri: string,
     datum: string, public bestellpositionen: Array<Bestellposition>) {
-    this.id = id ;
+    this.id = id;
     this.version = version;
-    this.gesamtbetrag = gesamtbetrag;
-    this.kundeUri = kundeUri;
+    this.gesamtbetrag = gesamtbetrag || null;
+    this.kundeUri = kundeUri || null;
     this.datum = isPresent(datum) ? moment(datum) : null;
     this.bestellpositionen = bestellpositionen;
   }
+
 
   toString(): string { return JSON.stringify(this, null, 2); }
 
