@@ -1,5 +1,8 @@
 <h2>Neuen Artikel anlegen</h2>
 
+<div *ng-if="!admin">Bitte einloggen zum Anlegen !</div>
+
+<div *ng-if="admin">
 <form [ng-form-model]="form" (submit)="save()" class="form-horizontal" role="form">
       
     <div class="form-group" [class.has-error]="!bezeichnung.valid && bezeichnung.touched">
@@ -97,3 +100,4 @@
     </div>
     
 </form>
+</div>

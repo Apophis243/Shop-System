@@ -2,6 +2,7 @@ import {Injectable, Injector} from 'angular2/angular2';
 
 const BENUTZER:string = "admin";
 const PASSWORT:string = "p";
+
 @Injectable()
 export default class IamService {
     
