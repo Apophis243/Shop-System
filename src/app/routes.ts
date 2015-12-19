@@ -20,6 +20,7 @@ import {RouteDefinition} from 'angular2/router';
 import Home from './home';
 import AlleArtikel from '../shopverwaltung/components/artikel/alleartikel/alleartikel';
 import ArtikelDetail from '../shopverwaltung/components/artikel/artikel_detail/artikel_detail';
+import BestellungDetail from '../shopverwaltung/components/bestellung/bestellung_detail/bestellung_detail';
 //import AlleAuszahlungen from '../buchungsverwaltung/components/alleauszahlungen/alleauszahlungen';
 //import BuchungDetail from '../buchungsverwaltung/components/buchung_detail/buchung_detail';
 import CreateArtikel from '../shopverwaltung/components/artikel/artikel_create/create_artikel';
@@ -46,6 +47,7 @@ const APP_ROUTES: Array<RouteDefinition> = [
     //{path: '/', as: 'Home', component: Home},
     {path: '/alleartikel', as: 'AlleArtikel', component: AlleArtikel},
     {path: '/artikeldetail/:id', as: 'ArtikelDetail', component: ArtikelDetail},
+    {path: '/bestellungdetail/:id', as: 'BestellungDetail', component: BestellungDetail},
     //{path: '/alleauszahlungen', as: 'AlleAuszahlungen', component: AlleAuszahlungen},
     //{path: '/buchungdetail/:id', as: 'BuchungDetail', component: BuchungDetail},
     {path: '/createartikel', as: 'CreateArtikel', component: CreateArtikel},
