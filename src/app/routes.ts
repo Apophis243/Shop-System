@@ -31,6 +31,7 @@ import SearchBestellungen from '../shopverwaltung/components/bestellung/bestellu
 import KundeRegisterLandingPage from '../shopverwaltung/components/kunde/kunde_register/kunde_register_landingpage';
 import KundeRegisterPrivat from '../shopverwaltung/components/kunde/kunde_register/kunde_register_privat';
 import Login from '../shopverwaltung/components/login/login';
+import Warenkorb from '../shopverwaltung/components/warenkorb/warenkorb';
 //import DetailsBuch from '../buchverwaltung/components/details_buch/details_buch';
 //import CreateBuch from '../buchverwaltung/components/create_buch/create_buch';
 //import UpdateBuch from '../buchverwaltung/components/update_buch/update_buch';
@@ -56,6 +57,7 @@ const APP_ROUTES: Array<RouteDefinition> = [
     {path: '/register', as: 'KundeRegisterLandingPage', component: KundeRegisterLandingPage},
     {path: '/registerprivat', as: 'KundeRegisterPrivat', component: KundeRegisterPrivat},
     {path: '/login', as: 'Login', component: Login},
+	{path: '/warenkorb', as: 'Warenkorb', component: Warenkorb},
     // z.B. Pfad .../detailsBuch/0000...0815
    // {path: '/detailsBuch/:id', as: 'DetailsBuch', component: DetailsBuch},
    // {path: '/updateBuch/:id', as: 'UpdateBuch', component: UpdateBuch},

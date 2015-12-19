@@ -1,11 +1,13 @@
 import {Component, CORE_DIRECTIVES, OnInit} from 'angular2/angular2';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Response} from 'angular2/http';
-
+import toastr from 'toastr/toastr';
 
 import ArtikelService from '../../../service/artikel_service';
+import WarenkorbService from '../../../service/warenkorb_service';
+import IamService from '../../../../iam/iam_service';
 import Artikel from '../../../model/artikel';
-
+import Menubar from '../../../../../src/app/menubar';
 
 @Component({
     selector: 'alleartikel',
@@ -28,6 +30,7 @@ import Artikel from '../../../model/artikel';
                             <th>Kategorie</th>
                             <th>Preis</th>
                             <th><span class="sr-only">Spalte f&uuml;r Details</span></th>
+                            <th>In Warenkorb</th>
                         </tr>
                     </thead>
 					<tbody>
@@ -46,6 +49,9 @@ import Artikel from '../../../model/artikel';
                                 (click)="buchung = a" data-toggle="tooltip" title="Details anzeigen">
                                     <i class="fa fa-search"></i>
                                 </a>
+                            </td>
+                            <td>
+                                <button (click)="add(a)" class="btn btn-default" type="button">Add</button>
                             </td>
                         </tr>
                     </tbody>
@@ -74,9 +80,29 @@ export default class AlleArtikel {
     get loading(): boolean { return this._artikelservice.loadingFind; }
     get init(): boolean { return this._artikelservice.initFind; }
 
-    constructor(private _artikelservice: ArtikelService) {
+    constructor(private _artikelservice: ArtikelService, private _warenkorbservice : WarenkorbService,
+                private _iamservice : IamService, private _menubar : Menubar) {
         this._artikelservice.getall().subscribe(res => this.artikel = res);
         console.log('Auszahlungen.constructor()' + this.artikel);
+    }
+    
+    add(artikel : Artikel) {
+        var result : boolean = this._warenkorbservice.addposition(1, artikel.id, this._iamservice.getkundenid());
+        if (result) {
+            toastr.options.closeButton = true;
+            toastr.options.closeHtml = '<button><i class="fa fa-times"></i></button>';
+            toastr.options.progressBar = true;
+            toastr.success("Artikel hinzugefuegt");
+            console.log("Erfolgereich in Warenkorb gelegt");
+            this._menubar.setAnzahlArtikel(this._warenkorbservice.warenkorbpositionen.length);
+        }
+        if (!result) {
+            toastr.options.closeButton = true;
+            toastr.options.closeHtml = '<button><i class="fa fa-times"></i></button>';
+            toastr.options.progressBar = true;
+            toastr.error("Fehler. Sind Sie eingeloggt ?");
+            console.log("Nicht Erfolgereich in Warenkorb gelegt");
+        }
     }
 
     toString(): String { return 'AlleArtikel'; }

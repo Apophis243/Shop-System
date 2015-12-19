@@ -32,7 +32,7 @@ export default class WarenkorbService {
     get warenkorbpositionen(): Array<Warenkorbposition> { return this._warenkorbpositionen; }
     
     addposition (anzahl : number, artikelUri: string, kundeUri : string) : boolean {
-        
+        console.log("Warenkorb meldet: " + anzahl + " " + artikelUri + " " + kundeUri);
         if (anzahl < 1 || isEmpty(artikelUri) || isEmpty(kundeUri)) {
             return false;
         }
@@ -64,7 +64,7 @@ export default class WarenkorbService {
             });
             
             var neuebestellung : Bestellung = new Bestellung(null, 0, 0, kundeUri, null, bestellpositionen);
-            this._http.post(this.bestellen, neuebestellung, {
+            this._http.post(this.bestellunguri , neuebestellung, {
                 headers: this.warenkorbheader,
                 body: neuebestellung
             })
