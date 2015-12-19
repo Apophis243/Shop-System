@@ -84,7 +84,7 @@ export default class CreateArtikel implements OnInit {
                 toastr.options.closeHtml =
                 '<button><i class="fa fa-times"></i></button>';
                 toastr.options.progressBar = true;
-                toastr.success("Buchung wurde angelegt");
+                toastr.success("Artikel wurde angelegt");
                 // this._router.navigate(['Home']);
             };
         const error: (response: Response) => void = (response: Response) => {

@@ -12,7 +12,7 @@ import Menubar from '../../../../src/app/menubar';
 @Component({
     selector: 'warenkorb',
     template: `
-
+        <div *ng-if="!admin">Um die Warenkorbfunktion zu nutzen, muss man eingeloggt sein !</div>
 		<div class="panel panel-primary" *ng-if="warenkorbpositionen.length > 0">
 		<div class="panel-heading">
                 <h3 class="panel-title">
@@ -51,7 +51,7 @@ import Menubar from '../../../../src/app/menubar';
             </div>
         </div>
 
-        <div *ng-if="warenkorbpositionen.length === 0">
+        <div *ng-if="warenkorbpositionen.length === 0 && admin">
             Es sind keine Artikel im Warenkorb
         </div>
     `,
@@ -73,7 +73,7 @@ export default class Warenkorb {
             toastr.options.closeButton = true;
             toastr.options.closeHtml = '<button><i class="fa fa-times"></i></button>';
             toastr.options.progressBar = true;
-            toastr.success("Artikel gekauft");
+            toastr.success("Artikel gekauft. Bestellung bei uns eingegangen.");
             this._menubar.setAnzahlArtikel(this._warenkorbservice.warenkorbpositionen.length);
             this._router.navigate(['Home']);
         };
@@ -88,6 +88,8 @@ export default class Warenkorb {
         console.log("Versuch Kaufen");
         this._warenkorbservice.bestellen(this._iamservice.getkundenid(), success, error);
     }
+    
+    get admin() : boolean { return this._iamservice.isAdmin();}
 
     toString(): String { return 'AlleArtikel'; }
 }
