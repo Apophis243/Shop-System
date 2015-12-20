@@ -30,7 +30,7 @@ import Menubar from '../../../../../src/app/menubar';
                             <th>Kategorie</th>
                             <th>Preis</th>
                             <th><span class="sr-only">Spalte f&uuml;r Details</span></th>
-                            <th>In Warenkorb</th>
+                            <th>Warenkorb</th>
                         </tr>
                     </thead>
 					<tbody>
@@ -46,12 +46,12 @@ import Menubar from '../../../../../src/app/menubar';
                             <td>{{a.preis  | currency: 'EUR': true}}</td>
                              <td>
                                 <a [router-link]="['/ArtikelDetail', {'id': a.id}]"
-                                (click)="buchung = a" data-toggle="tooltip" title="Details anzeigen">
+                                (click)="artikel = a" data-toggle="tooltip" title="Details anzeigen">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </td>
                             <td>
-                                <button (click)="add(a)" class="btn btn-default" type="button">Add</button>
+                                <button (click)="add(a)" class="btn btn-default" type="button" align="center" title="In Warenkorb legen">Add</button>
                             </td>
                         </tr>
                     </tbody>
@@ -68,7 +68,7 @@ import Menubar from '../../../../../src/app/menubar';
         </div>
 
         <div *ng-if="!init && !loading && artikel.length === 0">
-            Es gibt noch keine Einzahlungen
+            Es gibt noch keine Artikel
         </div>
     `,
     directives: [CORE_DIRECTIVES, ROUTER_DIRECTIVES]
