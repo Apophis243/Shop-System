@@ -11,6 +11,9 @@ import KundeRegisterLandingPage from '../shopverwaltung/components/kunde/kunde_r
 import KundeRegisterPrivat from '../shopverwaltung/components/kunde/kunde_register/kunde_register_privat';
 import Login from '../shopverwaltung/components/login/login';
 import Warenkorb from '../shopverwaltung/components/warenkorb/warenkorb';
+import BalkendiagrammBewertungen from '../shopverwaltung/components/balkendiagramm_bewertung/balkendiagramm_bewertung';
+import LiniendiagrammBewertungen from '../shopverwaltung/components/liniendiagramm_bewertung/liniendiagramm_bewertung';
+import TortendiagrammBewertungen from '../shopverwaltung/components/tortendiagramm_bewertung/tortendiagramm_bewertung';
 
 
 const APP_ROUTES: Array<RouteDefinition> = [
@@ -27,6 +30,21 @@ const APP_ROUTES: Array<RouteDefinition> = [
     {path: '/registerprivat', as: 'KundeRegisterPrivat', component: KundeRegisterPrivat},
     {path: '/login', as: 'Login', component: Login},
 	{path: '/warenkorb', as: 'Warenkorb', component: Warenkorb},
+    {
+      path: '/balkendiagramm',
+      as: 'Balkendiagramm',
+      component: BalkendiagrammBewertungen
+    },
+    {
+      path: '/liniendiagramm',
+      as: 'Liniendiagramm',
+      component: LiniendiagrammBewertungen
+    },
+    {
+      path: '/tortendiagramm',
+      as: 'Tortendiagramm',
+      component: TortendiagrammBewertungen
+    },
    // {path: '/', redirectTo: ['Home']}
    {path: '/', redirectTo: '/home'}
 ];
