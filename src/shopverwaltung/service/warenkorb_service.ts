@@ -51,7 +51,8 @@ export default class WarenkorbService {
                 temparray.push(position);
             }
         });
-        this._warenkorbpositionen = temparray;       
+        this._warenkorbpositionen = temparray;
+        return true;       
     }
     
     bestellen(kundeUri: string, successHTTP: () => void, errorHTTP: (response: Response) => void) : void {
