@@ -40,7 +40,6 @@ import WarenkorbService from '../shopverwaltung/service/warenkorb_service';
             <a >Bestellungen</a>
             <ul>
                 <li><a [router-link]="['SearchBestellungen']">Suche</a></li>
-                <li><a href="#">Neu anlegen</a></li>
             </ul>
         </li>
         <li>

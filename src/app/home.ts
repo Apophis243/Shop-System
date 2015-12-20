@@ -32,7 +32,7 @@ import Menubar from './menubar';
         <div align ="center"><h3>Willkommen in unserem Shop. Hier finden Sie alles was Sie brauchen !</h3></div>
         <br><br>
         <table align="center" width="90%">
-        <caption><b>Das ist unser Artikel des Tages nochmals deutlich reduziert</b></caption>
+        <caption><b>Das ist unser Artikel des Tages. F&uuml;r Sie nochmals deutlich reduziert!</b></caption>
         <div height="15px"></div>
         <tbody>
         <tr>
