@@ -31,9 +31,6 @@ import WarenkorbService from '../shopverwaltung/service/warenkorb_service';
             <ul>
                 <li><a [router-link]="['AlleArtikel']">Alle Artikel</a></li>
                 <li><a [router-link]="['CreateArtikel']">Artikel anlegen</a></li>
-                <li><a [router-link]="['Balkendiagramm']">Balkendiagramm</a></li>
-                <li><a [router-link]="['Liniendiagramm']">Liniendiagramm</a></li>
-                <li><a [router-link]="['Tortendiagramm']">Tortendiagramm</a></li>
             </ul>
         </li>
         <li>
@@ -50,6 +47,14 @@ import WarenkorbService from '../shopverwaltung/service/warenkorb_service';
         </li>
         <li>
             <a id="AnzahlArtikel" [router-link]="['Warenkorb']">Warenkorb ({{artikelimwarenkorb}})</a>
+        </li>
+        <li>
+            <a >Artikeldiagramme</a>
+            <ul>
+                <li><a [router-link]="['Balkendiagramm']">Balkendiagramm</a></li>
+                <li><a [router-link]="['Liniendiagramm']">Liniendiagramm</a></li>
+                <li><a [router-link]="['Tortendiagramm']">Tortendiagramm</a></li>
+            </ul>
         </li>
     </ul>
     `,

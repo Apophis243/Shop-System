@@ -1,6 +1,6 @@
 header {
   height:60px;
-  background-color: #999;
+  background-color: #E8E8E8;
   /*  zum Abrunden der Ecken  */
   border-bottom-left-radius: 6px;
   border-bottom-right-radius:6px;
@@ -13,7 +13,7 @@ footer {
   width: 100%;
   height: 50px;
   text-align: center;
-  background-color: #999;
+  background-color: #E8E8E8;
   margin-top:50px;
   
   /*  zum Abrunden der Ecken und vertikalen Zentrieren des Textes */

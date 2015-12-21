@@ -45,7 +45,7 @@ import ArtikelValidator from '../../validator/artikel_validator';
         </div>
         <div class="col-sm-offset-2 col-sm-10" *ng-if="!bezeichnung.valid && bezeichnung.touched">
             <span class="help-block">
-                Die Bezeichnung muss mit einem Buchstaben oder Zahl beginnen !
+                Die Bezeichnung muss mit einem Buchstaben oder Zahl beginnen!
             </span>
         </div>
     </div>

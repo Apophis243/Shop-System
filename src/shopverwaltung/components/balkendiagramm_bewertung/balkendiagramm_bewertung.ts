@@ -1,4 +1,4 @@
-import {Component} from 'angular2/angular2';
+import {Component, OnInit} from 'angular2/angular2';
 
 import ArtikelService from '../../service/artikel_service';
 import {isAdmin} from '../../../iam/iam_service';
@@ -11,13 +11,14 @@ import {isAdmin} from '../../../iam/iam_service';
         </section>
     `
 })
-export default class BalkendiagrammBewertungen {
+export default class BalkendiagrammBewertungen implements OnInit {
     private _elementIdChart: string = 'chart';
 
-    constructor(artikelService: ArtikelService) {
+    constructor(private _artikelService: ArtikelService) {
         console.log('BalkenDiagrammBewertungen.constructor()');
-        artikelService.setBarChart(this._elementIdChart);
     }
+    
+    onInit(): void { this._artikelService.setBarChart(this._elementIdChart); }
 
     toString(): string {
         return `BalkenDiagrammBewertungen: {elementIdChart: ${this._elementIdChart}}`;

@@ -22,7 +22,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
     selector: 'logo',
     template: `
         <a [router-link]="['Home']">
-            <img src="/src/img/hs-logo.gif" alt="Logo" height="60" width="337">
+            <img src="/src/img/hs-logo.png" alt="Logo" height="60" width="107">
         </a>
     `,
     directives: [ROUTER_DIRECTIVES]

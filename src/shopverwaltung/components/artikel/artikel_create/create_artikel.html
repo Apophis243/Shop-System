@@ -1,6 +1,6 @@
 <h2>Neuen Artikel anlegen</h2>
 
-<div *ng-if="!admin">Bitte einloggen zum Anlegen !</div>
+<div *ng-if="!admin">Bitte einloggen zum Anlegen!</div>
 
 <div *ng-if="admin">
 <form [ng-form-model]="form" (submit)="save()" class="form-horizontal" role="form">
@@ -17,7 +17,7 @@
         </div>
         <div class="col-sm-offset-2 col-sm-10" *ng-if="!bezeichnung.valid && bezeichnung.touched">
             <span class="help-block">
-                Die Bezeichnung muss mit einem Buchstaben oder Zahl beginnen !
+                Die Bezeichnung muss mit einem Buchstaben oder Zahl beginnen!
             </span>
         </div>
     </div>
