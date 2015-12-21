@@ -38,7 +38,7 @@ import {log, isEmpty} from '../../../../util/util';
                     </div>
                     
                     <div class="form-group">
-                        <label for="kundeidInput" class="col-sm-2 control-label">Nach KundenID:</label>
+                        <label for="kundeidInput" class="col-sm-2 control-label">KundenID:</label>
                         <div class="col-sm-10">
                             <input id="kundeidInput"
                                 type="search"

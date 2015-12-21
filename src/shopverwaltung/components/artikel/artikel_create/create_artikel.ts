@@ -16,6 +16,8 @@ import {Response} from 'angular2/http';
 import {Router, CanActivate} from 'angular2/router';
 import {log} from '../../../../util/util';
 import toastr from 'toastr/toastr';
+import iAmService from '../../../../iam/iam_service';
+import {isAdmin} from '../../../../iam/iam_service';
 
 import ArtikelService from '../../../service/artikel_service';
 import Artikel from '../../../model/artikel';
@@ -45,7 +47,7 @@ export default class CreateArtikel implements OnInit {
     ausgesondert: boolean = true;
 
     constructor(
-        private _formBuilder: FormBuilder,
+        private _formBuilder: FormBuilder, private _iamservice : iAmService,
         private _artikelservice: ArtikelService, private _router: Router) {
         console.log('CreateArtikel.constructor()');
     }
@@ -82,7 +84,7 @@ export default class CreateArtikel implements OnInit {
                 toastr.options.closeHtml =
                 '<button><i class="fa fa-times"></i></button>';
                 toastr.options.progressBar = true;
-                toastr.success("Buchung wurde angelegt");
+                toastr.success("Artikel wurde angelegt");
                 // this._router.navigate(['Home']);
             };
         const error: (response: Response) => void = (response: Response) => {
@@ -95,5 +97,7 @@ export default class CreateArtikel implements OnInit {
     }
 
     toString(): String { return 'CreateBuchung'; }
+    
+    get admin() : boolean { return this._iamservice.isAdmin();}
 
 }

@@ -20,6 +20,7 @@ import ArtikelService from '../shopverwaltung/service/artikel_service';
 import BestellungService from '../shopverwaltung/service/bestellung_service';
 import KundeService from '../shopverwaltung/service/kunde_service';
 import WarenkorbService from '../shopverwaltung/service/warenkorb_service';
+import Menubar from './menubar';
 /* tslint:disable:max-line-length */
 
 /* tslint:enable:max-line-length */
@@ -32,6 +33,7 @@ const APP_INJECTABLES: Array<any> = [
     BestellungService,
     KundeService,
     WarenkorbService,
+    Menubar,
 ];
 
 export default APP_INJECTABLES;

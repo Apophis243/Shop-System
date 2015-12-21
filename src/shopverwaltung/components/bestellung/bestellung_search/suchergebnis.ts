@@ -36,8 +36,14 @@ import {log} from '../../../../util/util';
                         -->
                             <td>{{i + 1}}</td>
                             <td>{{b.id}}</td>
-                            <td>{{b.gesamtbetrag}}</td>
+                            <td>{{b.gesamtbetrag  | currency: 'EUR': true}}</td>
                             <td>{{b.datumFormatted}}</td>
+                             <td>
+                                <a [router-link]="['/BestellungDetail', {'id': b.id}]"
+                                (click)="bestellung = b" data-toggle="tooltip" title="Details anzeigen">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
