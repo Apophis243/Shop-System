@@ -29,7 +29,7 @@ import Menubar from './menubar';
     selector: 'home',
     template: `
     <section *ng-if="artikel !== null">
-        <div align ="center"><h3>Willkommen in unserem Shop. Hier finden Sie alles was Sie brauchen !</h3></div>
+        <div align ="center"><h3>Willkommen in unserem Shop. Hier finden Sie alles was Sie brauchen!</h3></div>
         <br><br>
         <table align="center" width="90%">
         <caption><b>Das ist unser Artikel des Tages. F&uuml;r Sie nochmals deutlich reduziert!</b></caption>
@@ -39,7 +39,7 @@ import Menubar from './menubar';
             <td><img src="https://localhost:9443/src/img/{{artikel.id}}.jpg" alt="Beispielbild" style="max-height:250px;" /></td> 
             <td>
                 Bezeichnung: {{artikel.bezeichnung}}<br><br>
-                Aktionspreis: &nbsp;Anstatt <s>{{artikel.preis + 50 | currency: 'EUR': true}}</s> jetzt nur &nbsp; {{artikel.preis | currency: 'EUR': true}}<br><br>
+                Aktionspreis: &nbsp;Anstatt <s>{{artikel.preis + 50 | currency: 'EUR': true}}</s> jetzt nur &nbsp;{{artikel.preis | currency: 'EUR': true}}<br><br>
                 Bewertung: <span *ng-for="#r of artikel.ratingArray">
                             <i class="fa fa-star" style="color: yellow;" *ng-if="r === true"></i>
                             </span><br><br>
@@ -74,15 +74,15 @@ export default class Home implements OnInit {
             toastr.options.closeHtml = '<button><i class="fa fa-times"></i></button>';
             toastr.options.progressBar = true;
             toastr.success("Artikel hinzugefuegt");
-            console.log("Erfolgereich in Warenkorb gelegt");
+            console.log("Erfolgreich in Warenkorb gelegt");
             this._menubar.setAnzahlArtikel(this._warenkorbservice.warenkorbpositionen.length);
         }
         if (!result) {
             toastr.options.closeButton = true;
             toastr.options.closeHtml = '<button><i class="fa fa-times"></i></button>';
             toastr.options.progressBar = true;
-            toastr.error("Fehler. Sind Sie eingeloggt ?");
-            console.log("Nicht Erfolgereich in Warenkorb gelegt");
+            toastr.error("Fehler. Sind Sie eingeloggt?");
+            console.log("Nicht erfolgereich in Warenkorb gelegt");
         }
     }
 

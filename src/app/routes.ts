@@ -45,8 +45,8 @@ const APP_ROUTES: Array<RouteDefinition> = [
       as: 'Tortendiagramm',
       component: TortendiagrammBewertungen
     },
-   // {path: '/', redirectTo: ['Home']}
-   {path: '/', redirectTo: '/home'}
+    // {path: '/', redirectTo: ['Home']}
+    {path: '/', redirectTo: '/home'}
 ];
 
 export default APP_ROUTES;
