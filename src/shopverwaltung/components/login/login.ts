@@ -40,7 +40,7 @@ import IamService from '../../../iam/iam_service';
                     type="search"
                     [ng-form-control]="username"/>
             </div>
-        
+            <div height="3px" widht="100%">&nbsp;</div>
             <label for="passwordInput" class="col-sm-2 control-label">Passwort</label>
             <div class="col-sm-10">
                 <input id="passwordInput"
@@ -49,8 +49,8 @@ import IamService from '../../../iam/iam_service';
                     type="password"
                     [ng-form-control]="password"/>
             </div>
-            
-            <div class="form-group">
+            <div height="5px" widht="100%">&nbsp;</div>
+            <div class="form-group" align="right">
             <div class="col-sm-offset-2 col-sm-10">
                 <button class="btn btn-default">Login</button>
             </div>
