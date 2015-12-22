@@ -185,24 +185,21 @@ export default class ArtikelService {
     
     private _createBarChart(elementIdChart: string, artikel: Array<Artikel>):
         void {
-           
         const labels: Array<string> = artikel.map((artikel: Artikel) => artikel.id);
         const datasets: Array<ChartDataSet> = [
             {
               label: 'Bewertungen',
-              fillColor: 'rgba(220,220,220,0.2)',
+              fillColor: 'rgba(999,999,999,0.2)',
               strokeColor: 'rgba(220,220,220,1)',
               data: artikel.map((artikel: Artikel) => artikel.rating)
             }
         ];
-        
         const data: LinearChartData = {labels: labels, datasets: datasets};
         console.log('ArtikelService._createBarChart(): labels: ', labels);
 
         const chart: IChart = this._chartService.getChart(elementIdChart);
         if (isPresent(chart) && isPresent(datasets[0].data)
             && datasets[0].data.length !== 0) {
-            // TODO legendTemplate ergaenzen
             chart.Bar(data);
         }
     }
