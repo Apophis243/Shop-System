@@ -30,9 +30,6 @@ import 'zone.js';
 // Decorators (Proposal fuer Metadaten in ES7) emulieren
 import 'reflect-metadata';
 
-// z.B. Array.from() aus ES 2015 fuer aeltere Browser mit ES 5 emulieren
-// import 'es6-shim';
-
 import {bootstrap, provide} from 'angular2/angular2';
 import {
     ROUTER_PROVIDERS,
@@ -49,37 +46,11 @@ import APP_PROVIDERS from './providers';
 bootstrap(
     App,
     [
-      // Eigene Service-Objekte innerhalb der Root-Komponente sind Singletons
-      // durch den "application-wide injector"
-      // https://angular.io/docs/ts/latest/guide/hierarchical-dependency-injection.html
       APP_INJECTABLES,
       APP_PROVIDERS,
-
-      // FIXME ROUTER_PROVIDERS wird evtl. umbenannt in ROUTER
-      // https://github.com/angular/angular/issues/4834
       ROUTER_PROVIDERS,
       provide(ROUTER_PRIMARY_COMPONENT, {useValue: App}),
       provide(APP_BASE_HREF, {useValue: '/'}),
-
-      /* tslint:disable:max-line-length */
-      // PathLocationStrategy ist der Default fuer LocationStrategy,
-      // d.h. normale Pfade als Routen ("HTML5 routing").
-      // AngularJS 1: HashLocationStrategy
-      //
-      // Bookmarks und Page Refresh bei PathLocationStrategy:
-      //      browser-sync:
-      //      http://stackoverflow.com/questions/24474914/can-i-tell-browser-sync-to-always-use-one-html-file-for-html5mode-links#answer-30711530
-      //      http-server: HashLocationStrategy wg. Refresh verwenden
-      //      Apache Webserver:
-      //      http://stackoverflow.com/questions/14319967/angularjs-routing-without-the-hash#answer-21484874
-      //      nginx:   http://wiki.nginx.org/HttpRewriteModule#rewrite
-      //               http://winginx.com/htaccess
-      //               http://www.anilcetin.com/convert-apache-htaccess-to-nginx
-      // provide(LocationStrategy, {useClass: HashLocationStrategy}),
-      /* tslint:enable:max-line-length */
-
-      // FIXME HTTP_PROVIDERS wird evtl. umbenannt in HTTP
-      // https://github.com/angular/angular/issues/4834
       HTTP_PROVIDERS
     ])
     .then((success: any) => console.log(success))

@@ -24,7 +24,7 @@ export const HTTPS_PROVIDER: Provider = provide(SCHEME, {useValue: HTTPS});
 export const HTTP_PROVIDER: Provider = provide(SCHEME, {useValue: HTTP});
 
 const PORT_HTTPS: number = 8443;
-const PORT_MOCK: number = 8444;
+const PORT_MOCK: number = 8443;
 export const PORT: number = PORT_HTTPS;
 export const PORT_PROVIDER: Provider = provide(PORT, {useValue: PORT_HTTPS});
 export const PORT_MOCK_PROVIDER: Provider =
@@ -32,4 +32,4 @@ export const PORT_MOCK_PROVIDER: Provider =
 
 export const SERVERNAME: string = 'localhost';
 const BASE_PATH: string = '/shop/rest';
-export const BASE_PATH_BUECHER: string = `${BASE_PATH}/buecher`;
+export const BASE_PATH_BUECHER: string = `${BASE_PATH}/artikel`;

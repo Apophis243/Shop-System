@@ -19,6 +19,7 @@ import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 import IamService from '../iam/iam_service';
+import WarenkorbService from '../shopverwaltung/service/warenkorb_service';
 
 @Component({
     selector: 'menubar',
@@ -36,7 +37,6 @@ import IamService from '../iam/iam_service';
             <a >Bestellungen</a>
             <ul>
                 <li><a [router-link]="['SearchBestellungen']">Suche</a></li>
-                <li><a href="#">Neu anlegen</a></li>
             </ul>
         </li>
         <li>
@@ -45,14 +45,32 @@ import IamService from '../iam/iam_service';
                 <li><a [router-link]="['KundeRegisterLandingPage']">Register</a></li>
             </ul>
         </li>
+        <li>
+            <a id="AnzahlArtikel" [router-link]="['Warenkorb']">Warenkorb ({{artikelimwarenkorb}})</a>
+        </li>
+        <li>
+            <a >Artikeldiagramme</a>
+            <ul>
+                <li><a [router-link]="['Balkendiagramm']">Balkendiagramm</a></li>
+                <li><a [router-link]="['Liniendiagramm']">Liniendiagramm</a></li>
+                <li><a [router-link]="['Tortendiagramm']">Tortendiagramm</a></li>
+            </ul>
+        </li>
     </ul>
     `,
     directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES]
 })
 
 export default class Menubar {
-    constructor(private _iamService: IamService) {
+    constructor(private _iamService: IamService, private _warenkorbservice: WarenkorbService) {
         console.log('Menubar.constructor()');
+    }
+    
+    artikelimwarenkorb : number = this._warenkorbservice.warenkorbpositionen.length;
+    
+    public setAnzahlArtikel(anzahl : number) : void {
+        this.artikelimwarenkorb = anzahl;
+        document.getElementById("AnzahlArtikel").innerHTML = "Warenkorb (" + this.artikelimwarenkorb + ")";
     }
 
     isAdmin(): boolean { return this._iamService.isAdmin(); }

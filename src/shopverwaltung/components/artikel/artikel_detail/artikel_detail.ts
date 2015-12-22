@@ -2,6 +2,8 @@ import {Component, CORE_DIRECTIVES, OnInit, Input} from 'angular2/angular2';
 import {ROUTER_DIRECTIVES, RouteParams} from 'angular2/router';
 import {Response} from 'angular2/http';
 import {isPresent} from '../../../../util/util';
+import iAmService from '../../../../iam/iam_service';
+import {isAdmin} from '../../../../iam/iam_service';
 
 import ArtikelService from '../../../service/artikel_service';
 import Artikel from '../../../model/artikel';
@@ -50,7 +52,7 @@ import Artikel from '../../../model/artikel';
                 <a name="neu"></a><DIV id="text1" style="display: none"><pre>{{artikel | json}}</pre></div>
                   
         <FORM><INPUT Type="button" value="Back" class="btn btn-primary" align="center" onClick="history.go(-1);return true;"> &nbsp;
-         <a [router-link]="['EditArtikel', {'id': artikel.id}]"
+         <a [router-link]="['EditArtikel', {'id': artikel.id}]" *ng-if="admin"
                data-toggle="tooltip" title="Bearbeiten">
                <i class="fa fa-2x fa-edit"></i>
          </a>
@@ -62,7 +64,8 @@ import Artikel from '../../../model/artikel';
 
 export default class ArtikelDetail implements OnInit {
     
-    constructor(private _artikelservice: ArtikelService, private _routeParams: RouteParams) {
+    constructor(private _artikelservice: ArtikelService, private _routeParams: RouteParams,
+                private _iamservice : iAmService) {
         console.log('DetailsBuch.constructor(): routeParams=', _routeParams);
     }
     
@@ -76,4 +79,6 @@ export default class ArtikelDetail implements OnInit {
     get artikel() : Artikel { return this._artikelservice.artikel; }
     
     toString(): String { return 'BuchungDetail'; }
+    
+    get admin() : boolean { return this._iamservice.isAdmin();}
 }

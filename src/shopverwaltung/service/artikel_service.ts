@@ -1,31 +1,16 @@
 import {Inject, provide, Provider} from 'angular2/angular2';
 import {Http, Headers, Response} from 'angular2/http';
-import {
-ChartDataSet,
-LinearChartData,
-CircularChartData,
-IChart
-} from 'chart/Chart';
+import {ChartDataSet, LinearChartData, CircularChartData, IChart } from 'chart/Chart';
 
 import Artikel from '../model/artikel';
 import {IArtikelServer, IArtikelForm} from '../model/artikel';
-import {
-ChartService,
-SCHEME,
-SERVERNAME,
-PORT,
-BASE_PATH_BUECHER,
-isPresent,
-log,
-isEmpty,
-isBlank
-} from '../../util/util';
-import {nextId} from '../../util/mock';
+import {ChartService, SCHEME, SERVERNAME, PORT, BASE_PATH_BUECHER, isPresent,
+        log, isEmpty, isBlank } from '../../util/util';
 
 
 export default class ArtikelService {
 
-    private _baseUriBuecher: string;
+    private _baseUriArtikel: string;
     private _alleartikel: Array<Artikel> = [];
     private _artikel: Artikel = null;
     private _initFind: boolean = true;
@@ -37,11 +22,12 @@ export default class ArtikelService {
     private artikeluri: string = 'https://localhost:8443/shop/rest/artikel';
 
 
-    constructor( @Inject(ChartService) private _chartService: ChartService,
+    constructor( 
+        @Inject(ChartService) private _chartService: ChartService,
         @Inject(Http) private _http: Http, @Inject(SCHEME) scheme: string,
         @Inject(PORT) port: number) {
-        this._baseUriBuecher = `${scheme}:${SERVERNAME}:${port}${BASE_PATH_BUECHER}`;
-        console.log("ShopService.Konstruktoraufruf" + this._baseUriBuecher);
+        this._baseUriArtikel = `${scheme}:${SERVERNAME}:${port}${BASE_PATH_BUECHER}`;
+        console.log("ShopService.Konstruktoraufruf" + this._baseUriArtikel);
         this.artikelheader.append('Accept', 'application/json');
         this.artikelheader.append('Content-Type', 'application/json');
         this.artikelheader.append('Authorization', this.basicAuth);
@@ -119,6 +105,146 @@ export default class ArtikelService {
                 );
         }
         successHTTP();
+    }
+    
+    //@log
+    setBarChart(elementIdChart: string): void {
+        const uri: string = 'https://localhost:8443/shop/rest/katalog';
+        const success: Function = (response: Response) => {
+            headers: this.artikelheader,
+            this._createBarChart(
+                elementIdChart, this._responseToArrayArtikel(response));
+        };
+        const error: Function =
+            (response: Response) => { console.error('response=', response); };
+        const next: ((response: Response) => void) = (response: Response) => {
+            if (response.status === 200) {
+                success(response);
+                return;
+            }
+            error(response);
+        };
+           
+        this._http.get(uri).subscribe(next);
+    }
+
+    //@log
+    setLinearChart(elementIdChart: string): void {
+        const uri: string = 'https://localhost:8443/shop/rest/katalog';
+        const success: Function = (response: Response) => {
+            headers: this.artikelheader,
+            this._createLineChart(
+                elementIdChart, this._responseToArrayArtikel(response));
+        };
+        const error: Function =
+            (response: Response) => { console.error('response=', response); };
+        const next: ((response: Response) => void) = (response: Response) => {
+            if (response.status === 200) {
+                success(response);
+                return;
+            }
+            error(response);
+        };
+
+        this._http.get(uri).subscribe(next);
+    }
+
+    //@log
+    setPieChart(elementIdChart: string): void {
+        const uri: string = 'https://localhost:8443/shop/rest/katalog';
+        const success: Function = (response: Response) => {
+            headers: this.artikelheader,
+            this._createPieChart(
+                elementIdChart, this._responseToArrayArtikel(response));
+        };
+        const error: Function =
+            (response: Response) => { console.error('response=', response); };
+        const next: ((response: Response) => void) = (response: Response) => {
+            if (response.status === 200) {
+                success(response);
+                return;
+            }
+            error(response);
+        };
+
+        this._http.get(uri).subscribe(next);
+    }
+
+    toString(): String {
+        return `ArtikelService: {artikel: ${JSON.stringify(this._artikel, null, 2)}}`;
+    }
+    
+     @log
+    private _responseToArrayArtikel(response: Response): Array<Artikel> {
+        const jsonArray: Array<IArtikelServer> =
+            <Array<IArtikelServer>>(response.json());
+        return jsonArray.map((jsonObjekt: IArtikelServer) => {
+            return Artikel.fromServer(jsonObjekt);
+        });
+    }
+    
+    private _createBarChart(elementIdChart: string, artikel: Array<Artikel>):
+        void {
+        const labels: Array<string> = artikel.map((artikel: Artikel) => artikel.id);
+        const datasets: Array<ChartDataSet> = [
+            {
+              label: 'Bewertungen',
+              fillColor: 'rgba(999,999,999,0.2)',
+              strokeColor: 'rgba(220,220,220,1)',
+              data: artikel.map((artikel: Artikel) => artikel.rating)
+            }
+        ];
+        const data: LinearChartData = {labels: labels, datasets: datasets};
+        console.log('ArtikelService._createBarChart(): labels: ', labels);
+
+        const chart: IChart = this._chartService.getChart(elementIdChart);
+        if (isPresent(chart) && isPresent(datasets[0].data)
+            && datasets[0].data.length !== 0) {
+            chart.Bar(data);
+        }
+    }
+
+    private _createLineChart(elementIdChart: string, artikel: Array<Artikel>):
+        void {
+        const labels: Array<string> = artikel.map((artikel: Artikel) => artikel.id);
+        const datasets: Array<ChartDataSet> = [
+            {
+              label: 'Bewertungen',
+              fillColor: 'rgba(220,220,220,0.2)',
+              strokeColor: 'rgba(220,220,220,1)',
+              data: artikel.map((artikel: Artikel) => artikel.rating)
+            }
+        ];
+        const data: LinearChartData = {labels: labels, datasets: datasets};
+
+        // TODO Das Datenmodell fuer Chart.js hat sich in 2.0 geaendert
+        //      https://github.com/nnnick/Chart.js/blob/v2.0-alpha/README.md
+        //      chart.d.ts gibt es noch nicht fuer 2.0
+        const chart: IChart = this._chartService.getChart(elementIdChart);
+        if (isPresent(chart) && isPresent(datasets[0].data)
+            && datasets[0].data.length !== 0) {
+            chart.Line(data);
+        }
+    }
+
+    private _createPieChart(elementIdChart: string, artikel: Array<Artikel>):
+        void {
+        const pieData: Array<CircularChartData> =
+            new Array<CircularChartData>(artikel.length);
+        artikel.forEach((artikel: Artikel, i: number) => {
+            const data: CircularChartData = {
+                value: artikel.rating,
+                color: this._chartService.getColorPie(i),
+                highlight: this._chartService.getHighlightPie(i),
+                label: `${artikel.id}`
+            };
+            pieData[i] = data;
+        });
+
+        const chart: IChart = this._chartService.getChart(elementIdChart);
+        if (isPresent(chart) && pieData.length !== 0) {
+            chart.Pie(pieData);
+        }
     }
     
     /*

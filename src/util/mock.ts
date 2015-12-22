@@ -56,3 +56,14 @@ export function rating(): number {
     /* tslint:enable:max-line-length */
     return Math.floor(Math.random() * 5) + 1;
 };
+
+export function random() : string {
+    var ids : Array<string> = ["00000002-0000-0000-0000-000000000001",
+                               "00000002-0000-0000-0000-000000000002",
+                               "00000002-0000-0000-0000-000000000003",
+                               "00000002-0000-0000-0000-000000000004",
+                               "00000002-0000-0000-0000-000000000005",
+                               "00000002-0000-0000-0000-000000000006"];
+    var pos : number =   Math.floor(Math.random() * ids.length);
+    return ids[pos];
+}

@@ -15,10 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// import {BUECHER_SERVICE_PROVIDER} from
-// '../buchverwaltung/service/buecher_service';
-// import {MOCK_SERVER_PROVIDER} from
-// '../buchverwaltung/service/mock/buecher_service_mock_server';
 import {
     MOCK_OBJECTS_PROVIDER
 } from '../shopverwaltung/service/artikel_service';
@@ -28,19 +24,20 @@ import {
 import {
     MOCK_OBJECTS_PROVIDER_KUNDE
 } from '../shopverwaltung/service/kunde_service';
-
+import {
+    MOCK_OBJECTS_PROVIDER_WARENKORB
+} from '../shopverwaltung/service/warenkorb_service';
 
 import {HTTP_PROVIDER, PORT_MOCK_PROVIDER} from '../util/util';
 // import {HTTPS_PROVIDER} from '../util/util';
 // import {PORT_PROVIDER} from '../util/util';
 
 const APP_PROVIDERS: Array<any> = [
-    // BUECHER_SERVICE_PROVIDER,
     // MOCK_SERVER_PROVIDER,
     MOCK_OBJECTS_PROVIDER,
     MOCK_OBJECTS_PROVIDER_BESTELLUNGEN,
     MOCK_OBJECTS_PROVIDER_KUNDE,
-    
+    MOCK_OBJECTS_PROVIDER_WARENKORB,
     // HTTPS_PROVIDER,
     HTTP_PROVIDER,
 
